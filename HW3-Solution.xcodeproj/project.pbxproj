@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,9 @@
 		9EEBB50A21835DB2008FEDFC /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEBB50921835DB2008FEDFC /* Conversion.swift */; };
 		9EEBB50C21836204008FEDFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEBB50B21836204008FEDFC /* HistoryTableViewController.swift */; };
 		9EEBB50E2183796D008FEDFC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEBB50D2183796D008FEDFC /* HistoryTableViewCell.swift */; };
+		B52B48B3238B03D200AEA44F /* Weather.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52B48B2238B03D200AEA44F /* Weather.xcassets */; };
+		B52B48B5238B03F500AEA44F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B48B4238B03F500AEA44F /* Weather.swift */; };
+		B52B48B7238B040A00AEA44F /* DarkSkyWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B48B6238B040A00AEA44F /* DarkSkyWeatherService.swift */; };
 		B5A043E8237CFCA300EC6B34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5A043E7237CFCA300EC6B34 /* GoogleService-Info.plist */; };
 		E42698F43C2138641EFA7CEA /* Pods_HW3_Solution_HW3_SolutionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C75144387CC8DD460D87402 /* Pods_HW3_Solution_HW3_SolutionUITests.framework */; };
 		E49D88346140ED28039A532C /* Pods_HW3_Solution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A79D4A797421C44B8F7EC1 /* Pods_HW3_Solution.framework */; };
@@ -76,6 +79,9 @@
 		9EEBB50B21836204008FEDFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		9EEBB50D2183796D008FEDFC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B0A79D4A797421C44B8F7EC1 /* Pods_HW3_Solution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW3_Solution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52B48B2238B03D200AEA44F /* Weather.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Weather.xcassets; sourceTree = "<group>"; };
+		B52B48B4238B03F500AEA44F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		B52B48B6238B040A00AEA44F /* DarkSkyWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyWeatherService.swift; sourceTree = "<group>"; };
 		B5A043E7237CFCA300EC6B34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB559EE68ED2F1D0B3B80D8 /* Pods-HW3-Solution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW3-Solution.release.xcconfig"; path = "Target Support Files/Pods-HW3-Solution/Pods-HW3-Solution.release.xcconfig"; sourceTree = "<group>"; };
 		EE84F72AD1C6617BAD7E0562 /* Pods-HW3-SolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW3-SolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HW3-SolutionTests/Pods-HW3-SolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				9E1E654A2142BF8800F4E8CB /* Main.storyboard */,
 				9E1E65742142C38700F4E8CB /* DecimalMinusTextField.swift */,
 				9E1E654D2142BF8900F4E8CB /* Assets.xcassets */,
+				B52B48B2238B03D200AEA44F /* Weather.xcassets */,
 				9E1E654F2142BF8900F4E8CB /* LaunchScreen.storyboard */,
 				9E1E65522142BF8900F4E8CB /* Info.plist */,
 				9E1E65762142C53800F4E8CB /* UnitsAndModes.swift */,
@@ -160,6 +167,8 @@
 				9EEBB50921835DB2008FEDFC /* Conversion.swift */,
 				9EEBB50B21836204008FEDFC /* HistoryTableViewController.swift */,
 				9EEBB50D2183796D008FEDFC /* HistoryTableViewCell.swift */,
+				B52B48B4238B03F500AEA44F /* Weather.swift */,
+				B52B48B6238B040A00AEA44F /* DarkSkyWeatherService.swift */,
 			);
 			path = "HW3-Solution";
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52B48B3238B03D200AEA44F /* Weather.xcassets in Resources */,
 				9E1E65512142BF8900F4E8CB /* LaunchScreen.storyboard in Resources */,
 				B5A043E8237CFCA300EC6B34 /* GoogleService-Info.plist in Resources */,
 				9E1E654E2142BF8900F4E8CB /* Assets.xcassets in Resources */,
@@ -439,10 +449,12 @@
 				9E1E65772142C53800F4E8CB /* UnitsAndModes.swift in Sources */,
 				9EE845B0215BE2AD0091EFE4 /* ConversionCalcButton.swift in Sources */,
 				9EEBB50A21835DB2008FEDFC /* Conversion.swift in Sources */,
+				B52B48B5238B03F500AEA44F /* Weather.swift in Sources */,
 				9EEBB50C21836204008FEDFC /* HistoryTableViewController.swift in Sources */,
 				9E1E65752142C38700F4E8CB /* DecimalMinusTextField.swift in Sources */,
 				9EE845AE215BE2820091EFE4 /* ConversionCalcLabel.swift in Sources */,
 				9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */,
+				B52B48B7238B040A00AEA44F /* DarkSkyWeatherService.swift in Sources */,
 				9EEBB50E2183796D008FEDFC /* HistoryTableViewCell.swift in Sources */,
 				9E1E65792147122200F4E8CB /* SettingsViewController.swift in Sources */,
 				9E1E65472142BF8800F4E8CB /* AppDelegate.swift in Sources */,

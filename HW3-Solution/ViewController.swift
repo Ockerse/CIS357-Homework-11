@@ -12,6 +12,7 @@ import Firebase
 class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate {
 
    fileprivate var ref : DatabaseReference?
+    let wAPI = DarkSkyWeatherService.getInstance()
 
 
 
@@ -20,6 +21,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
     @IBOutlet weak var fromUnits: UILabel!
     @IBOutlet weak var toUnits: UILabel!
     @IBOutlet weak var calculatorHeader: UILabel!
+    
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var temp: UILabel!
+    @IBOutlet weak var condition: UILabel!
     
     //var entries : [Conversion] = []
     var entries : [Conversion] = [
@@ -115,8 +120,22 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
 
                 }
             }
+            
+           
+            
+            
         }
         self.view.endEditing(true)
+        wAPI.getWeatherForDate(date: Date(), forLocation: (42.963686, -85.888595)) { (weather) in
+                       if let w = weather {
+                           DispatchQueue.main.async {
+                               self.temp.text = "\(w.temperature.roundTo(places: 1))"
+                               self.icon.image = UIImage(named: w.iconName)
+                               self.condition.text = w.summary
+                           }
+                       }
+                   }
+
     }
     
     func toDictionary(vals: Conversion) -> NSDictionary {
