@@ -26,6 +26,16 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var condition: UILabel!
     
+    
+    func clearWeather(){
+    self.temp.text = ""
+    self.icon.image =  nil
+    self.condition.text = ""
+    }
+    
+    
+    
+    
     //var entries : [Conversion] = []
     var entries : [Conversion] = [
         Conversion(fromVal: 1, toVal: 1760, mode: .Length, fromUnits: LengthUnit.Miles.rawValue, toUnits: LengthUnit.Yards.rawValue, timestamp: Date.distantPast),
@@ -40,7 +50,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         self.view.backgroundColor = BACKGROUND_COLOR
         self.ref = Database.database().reference()
         self.registerForFireBaseUpdates()
+        clearWeather()
     }
+  
+        
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,8 +75,19 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         calculatorHeader.text = "\(currentMode.rawValue) Conversion Calculator"
     }
     
+    
+    
     @IBAction func calculatePressed(_ sender: UIButton) {
         // determine source value of data for conversion and dest value for conversion
+        wAPI.getWeatherForDate(date: Date(), forLocation: (42.963686, -85.888595)) { (weather) in
+                              if let w = weather {
+                                  DispatchQueue.main.async {
+                                      self.temp.text = "\(w.temperature.roundTo(places: 1))°"
+                                      self.icon.image = UIImage(named: w.iconName)
+                                      self.condition.text = w.summary
+                                  }
+                              }
+                          }
         var dest : UITextField?
 
         var val = ""
@@ -126,15 +151,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
             
         }
         self.view.endEditing(true)
-        wAPI.getWeatherForDate(date: Date(), forLocation: (42.963686, -85.888595)) { (weather) in
-                       if let w = weather {
-                           DispatchQueue.main.async {
-                               self.temp.text = "\(w.temperature.roundTo(places: 1))"
-                               self.icon.image = UIImage(named: w.iconName)
-                               self.condition.text = w.summary
-                           }
-                       }
-                   }
+       
 
     }
     

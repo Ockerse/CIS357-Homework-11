@@ -24,7 +24,7 @@ class DarkSkyWeatherService: WeatherService {
     {
  
 // TODO: concatentate the complete endpoint URL here.
-        let urlStr = API_BASE +  "ac0cc5be24496cf69a2196bc8cc5fc76"
+        let urlStr = API_BASE + "ac0cc5be24496cf69a2196bc8cc5fc76/\(location.0),\(location.1),\(Int(date.timeIntervalSince1970))"
         let url = URL(string: urlStr)
         
         let task = self.urlSession.dataTask(with: url!) {
